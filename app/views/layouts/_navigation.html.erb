@@ -1,4 +1,4 @@
-<a class=" item">
+<a class=" item" href="/">
   Chatroom
 </a>
 <a class="item">
@@ -8,9 +8,14 @@
   <div class="ui dropdown item">
     Account <i class="dropdown icon"></i>
     <div class="menu">
-      <a class="item">Log out</a>
-      <a class="item">Log in</a>
-      <a class="item">SignUp</a>
+<!--      <a class="item" ><%#=link_to "Login" ,login_path %></a>-->
+      <% if user_signed_in? %>
+           <a class="item" data-method="delete" href="/users/sign_out" >Log out</a>
+        <a class="item"  href="/users/edit" >Edit Account</a>
+      <%else%>
+          <a class="item" href=/users/sign_in>Log in</a>
+          <a class="item" href="/users/sign_up">SignUp</a>
+      <%end %>
     </div>
   </div>
   <div class="item">
