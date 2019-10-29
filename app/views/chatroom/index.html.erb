@@ -10,47 +10,52 @@
       <div class="content">
         <div class="ui medium feed">
 <!--          <h4 class="ui header">Followers Activity</h4>-->
+          <% @messages.each do |m| %>
           <div class="event">
             <div class="content">
               <div class="summary">
-                <em>Elliot Fu</em> added <a>Jenny Hess</a> as a friend
+                <em style="font-size: 20px"><%=m.user.name %></em> <p><%=m.body %></p>
               </div>
             </div>
           </div>
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                <a>Stevie Feliciano</a> added <a>Elliot Fu</a> as a friend
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                <a>Helen Troy</a> added <a>Christian Rocha</a> as a friend
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                <em>Christian Rocha</em>:Test message
-              </div>
-            </div>
-          </div>
+            <%end %>
+<!--          <div class="event">-->
+<!--            <div class="content">-->
+<!--              <div class="summary">-->
+<!--                <a>Stevie Feliciano</a> added <a>Elliot Fu</a> as a friend-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="event">-->
+<!--            <div class="content">-->
+<!--              <div class="summary">-->
+<!--                <a>Helen Troy</a> added <a>Christian Rocha</a> as a friend-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="event">-->
+<!--            <div class="content">-->
+<!--              <div class="summary">-->
+<!--                <em>Christian Rocha</em>:Test message-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
         </div>
       </div>
       <div class="extra content">
-        <form class="ui reply form">
+        <%= form_for(@message,html:{class:"ui reply form",role:"form"},url:message_path) do |f|%>
+<!--        <form class="ui reply form">-->
           <div class="field">
             <div class="ui fluid icon input">
-              <input type="text" placeholder="Enter a Message........">
-              <i class="bordered inverted teal edit icon"></i>
+<!--              <input type="text" placeholder="Enter a Message........">-->
+              <%= f.text_field :body %>
+              <%=f.button '<i class="bordered inverted teal edit icon"></i>'.html_safe%>
             </div>
 
           </div>
 
-        </form>
+<!--        </form>-->
+        <%end %>
       </div>
     </div>
   </div>

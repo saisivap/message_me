@@ -1,5 +1,9 @@
 class ChatroomController < ApplicationController
-  def index
 
+  before_action :authenticate_user!
+
+  def index
+    @message=Message1.new
+    @messages=Message1.all
   end
 end

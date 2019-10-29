@@ -10,15 +10,19 @@
     <div class="menu">
 <!--      <a class="item" ><%#=link_to "Login" ,login_path %></a>-->
       <% if user_signed_in? %>
-           <a class="item" data-method="delete" href="/users/sign_out" >Log out</a>
-        <a class="item"  href="/users/edit" >Edit Account</a>
+           <a class="item" data-method="delete" href="/logout" >Log out</a>
+        <a class="item"  href="/edit" >Edit Account</a>
       <%else%>
-          <a class="item" href=/users/sign_in>Log in</a>
-          <a class="item" href="/users/sign_up">SignUp</a>
+          <a class="item" href=/login>Log in</a>
+          <a class="item" href="/sign_up">SignUp</a>
       <%end %>
     </div>
   </div>
+
   <div class="item">
+    <% if user_signed_in? %>
+      <% else %>
     <div class="ui primary button">Sign Up</div>
+      <%end %>
   </div>
 </div>
