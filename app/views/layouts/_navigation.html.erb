@@ -21,6 +21,13 @@
 
   <div class="item">
     <% if user_signed_in? %>
+      <div class="middle aligned content">
+        <div class="header">
+          <i class="like icon"></i>
+          <%=current_user.name %>
+        </div>
+      </div>
+<!--    <p><%#=current_user.name %></p>-->
       <% else %>
 <!--    <div class="ui primary button">Sign Up</div>-->
       <%#= button_to  sign_up, class: "ui primary button", method: :get %>
