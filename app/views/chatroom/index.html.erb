@@ -7,18 +7,20 @@
 <div class="ui two column grid">
   <div class="twelve wide column" >
     <div class="ui fluid raised card chatbox">
-      <div class="content">
-        <div class="ui medium feed">
+      <div class="content" id="msg_scroll">
+        <div class="ui medium feed" id="message-container">
 <!--          <h4 class="ui header">Followers Activity</h4>-->
-          <% @messages.each do |m| %>
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                <em style="font-size: 20px"><%=m.user.name %></em> <p><%=m.body %></p>
-              </div>
-            </div>
-          </div>
-            <%end %>
+          <%# @messages.each do |m| %>
+<!--          <div class="event">-->
+<!--            <div class="content">-->
+<!--              <div class="summary">-->
+<!--                <em style="font-size: 20px"><%#=m.user.name %></em> <p><%#=m.body %></p>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+            <%#end %>
+          <%#= render 'message1s/message' %>
+          <%= render @message1s %>
 <!--          <div class="event">-->
 <!--            <div class="content">-->
 <!--              <div class="summary">-->
@@ -43,7 +45,7 @@
         </div>
       </div>
       <div class="extra content">
-        <%= form_for(@message,html:{class:"ui reply form",role:"form"},url:message_path) do |f|%>
+        <%= form_for(@message,html:{class:"ui reply form",role:"form"},url:message_path,remote: true) do |f|%>
 <!--        <form class="ui reply form">-->
           <div class="field">
             <div class="ui fluid icon input">
